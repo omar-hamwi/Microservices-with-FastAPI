@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection ,HashModel
 
-
-
 app = FastAPI()
 
 app.add_middleware(
@@ -14,8 +12,8 @@ app.add_middleware(
 
 )
 redis=get_redis_connection(
-    host="redis-12990.c293.eu-central-1-1.ec2.cloud.redislabs.com",
-    port=12990,
+    host="redis-12900.c55.eu-central-1-1.ec2.cloud.redislabs.com",
+    port=12900,
     password="hSVysForn2HVS0pUYWlciRZwrZjl8AhM",
     decode_responses=True
 )
@@ -41,7 +39,6 @@ def format(pk:str):
         'price':product.price,
         'quantity':product.quantity
     }
-
 
 @app.post('/products')
 def create(product:Product):
